@@ -1,3 +1,5 @@
+using Application.DependencyInjection;
+using Infrastructure.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -21,6 +23,9 @@ namespace Api
         {
 
             services.AddControllers();
+            services.AddRazorPages();
+            services.AddApplication();
+            services.AddInfrastructure();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MarketInventoryController", Version = "v1" });
